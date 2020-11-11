@@ -5,30 +5,35 @@ window.onload = function search(){
         e.preventDefault();
         console.log("clicked")
         
-
+ 
         var httpRequest = new XMLHttpRequest(); 
-        var url = "http://localhost/info2180-lab4/superheroes.php"
+        var url = "http://localhost/info2180-lab4/superheroes.php" 
         httpRequest.open('GET', url); 
         httpRequest.send();
-    
         
+       
         httpRequest.onreadystatechange = function(){
-           
-            if (httpRequest.readyState === XMLHttpRequest.DONE) {
-                 if (httpRequest.status === 200) { 
+       
+
+            
+            
+            if (httpRequest.readyState === XMLHttpRequest.DONE){
+                if (httpRequest.status === 200) { 
                     var response = httpRequest.responseText; 
-                    alert(response);  
+                    document.getElementById("result").innerHTML = response
                     console.log(response)
-                    } 
-                else{ 
-                    alert('There was a problem with the request.');   
+                    
+                    
+                }else{ 
+                        alert('There was a problem with the request.');   
                     }
-            }
-             
+            }    
+            
         }
-
+       
         
-
-
+ 
+ 
     })
 }
+ 
